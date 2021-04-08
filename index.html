@@ -65,70 +65,14 @@
     </div>
   </div>
 
-
-  <!-- Section 2- Visualising Data -->
+  <!-- Section 2- 2nd Jouurnal -->
   <div class="section" style="background-color:#ffebee" id="div_data">
 
     <div class="container">
-      <h1 class="header">Visualize Multi-Sensor Data</h1>
-      <p align='justify'>
-        Sensor Data is recorded for a fleet of engines of the same type (100 in total).  Data sets consists of
-        multiple multivariate time series. Each time series is from a different engine –
-        i.e., the data can be considered to be from a fleet of engines of the same type. Each engine starts with
-        different degrees of initial wear and manufacturing variation which is unknown to the user.
-        This wear and variation is considered normal, i.e., it is not considered a fault condition. There are three
-        operational settings that have a substantial effect on engine performance. These settings
-        are also included in the data. The data is contaminated with sensor noise.
-        <p align='center'>
-          <b>Total number of sensor measurements : 21 </b>
-          <b> | Total number of operational settings : 03 </b>
-        </p>
-      </p>
-      <p>
-        The interface may be used to select and visualize sensor readings. Out of 21, select sensors
-        are only used for visualisation here. While creating model, all 21 sensor measurement and 3 operational
-        settings are used.
-      </p>
-      <p>
-        <!-- [how to use, what you want your reader to do after you end, as simple and obvious] -->
-        Use dropdown to visualize snapshot of multi-sensor data of an Engine. Note: Sensor values have been normalized.
-      </p>
+      <h1 class="header">Journal 2 :a</h1>
     </div>
-
-    <div class="container">
-      <div class="row" id="div_container_getdata">
-        <div class="col m4">
-          <div class="input-field col s12">
-            <select id="engineid" onchange="fetchSensorData()">
-              <option value="Engine 1">Engine 1</option>
-              <option value="Engine 2">Engine 1 Sensor 1</option>
-              <option value="Engine 3">Engine 1 Sensor 2</option>
-              <option value="Engine 4">Engine 1 Sensor 3</option>
-              <option value="Engine 5">Engine 1 Sensor 4</option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <button class="waves-effect waves-light btn" id="btn_fetch_data" onclick="fetchSensorData()">Fetch Data</button>
-          <div class="preloader-wrapper small active" id="load_fetch_data" style="display:none">
-          </div>
-        </div>
-      </div>
-
-      <div class="row" id="div_container_linegraph" style="display:none">
-        <div class="col s12">
-          <div class="card z-depth-5">
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4" id="div_linegraph_data_title">Card Title<</span>
-              <div >
-                <div id="div_linegraph_data" style="width:100%; height:350px;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+   
+  </div>
 
   <!-- Section 3 - Deep Neural Net -->
   <div class="section" style="background-color:#e8f5e9" id="div_train">
@@ -136,43 +80,6 @@
     <div class="container">
       <h1 class="header">Deep Neural Net</h1>
       <p class="lead"></p>
-      <p align="justify">
-        <!-- [Purpose] -->
-        Once the training data is cleaned, wrangled (Details in blog/GitHub), a model can be created learning from
-        data.Deep learning is an aspect of artificial intelligence (AI) that is concerned
-        with emulating the learning approach that human beings use to gain certain types of knowledge.
-      </p>
-      <p align="justify">
-        To understand deep learning, imagine a toddler whose first word is dog. The toddler learns what a dog is
-        (and is not) by pointing to objects and saying the word dog. The parent says, "Yes, that is a dog," or,
-        "No, that is not a dog." As the toddler continues to point to objects, he becomes more aware of
-        the features that all dogs possess. What the toddler does, without knowing it, is clarify a
-        complex abstraction (the concept of dog) by building a hierarchy in which each level of abstraction is
-        created with knowledge that was gained from the preceding layer of the hierarchy.
-      </p>
-      <p align="justify">
-        Refering to the above analogy, for the case of prediction of whether a machine will fail in the next
-        n cycles?, a deep learning model will observe examples with failures (training data), extract out
-        features that will suggest that the machine is going to fail in next n cycles, similar to that of a toddler
-        becoming aware of the features that dogs possess (tail, legs). For machine failures, traditionally
-        skilled operators were able to discern such failures by observing sound of the machine or other
-        features which they have gained through experience. Unlike the skilled operator or toddler, who will take
-         year/months to understand the concept of "machine failure"/dog, a computer program that uses deep learning algorithms
-         can be shown a training set and learn the skills.,With each observation and iteration, the model the
-        computer creates becomes more complex and more accurate. To achieve an acceptable level of accuracy,
-        deep learning programs require access to immense amounts of training data and processing power,
-        neither of which were easily available until the era of big data and cloud computing.
-      </p>
-      <p align="justify">
-        A Sequential model is selected which connects each layer and pass the data from input to the output
-        during the training process. In order for the model to learn time series data which are sequential,
-        recurrent neural network (RNN) layer is created and a number of LSTM cells are added to the RNN.
-        The scheme is represented below.
-      </p>
-      <figure>
-        <img class="img-fluid z-depth-5" src="images/model.png" alt="Broken Link. My apologies!">
-     </figure>
-     <br></br>
     </div>
   </div>
 
@@ -181,98 +88,6 @@
     <div class="container">
       <h1 class="header">Prediction</h1>
       <p class="lead"></p>
-      <p>
-        <!-- [Purpose] -->
-        Based on the model created for engine, it is possible to predict whether the engine will fail in the next
-        30 cycles. A sample of data points from a test data set (data not seen by model) is provided as follows
-        <ol>
-          <li> Sample 1 - Engine A - Healthy State </li>
-          <li> Sample 2 - Engine A - End of Life State </li>
-          <li> Sample 3 - Engine B - Healthy State </li>
-          <li> Sample 4 - Engine B - End of Life State </li>
-      </p>
-      <p>
-        Use dropdown to select sample data
-      </p>
-    </div>
-
-
-    <div class="container">
-      <div class="row">
-        <div class="col m4">
-          <div class="input-field col s12">
-            <select id="testdata" onchange="reset()">
-              <option value="Sample 1">Sample 1 - Engine A - Healthy State</option>
-              <option value="Sample 2">Sample 2 - Engine A - End of Life State</option>
-              <option value="Sample 3">Sample 3 - Engine B - Healthy State</option>
-              <option value="Sample 4">Sample 4 - Engine B - End of Life State</option>
-            </select>
-          </div>
-        </div>
-        <div class="col" id="div_container_testbutton">
-          <button class="waves-effect waves-light btn" id="btn_fetch_data" onclick="getTestData()">Fetch Data</button>
-        </div>
-      </div>
-      <!-- Sample Data Graph -->
-      <div class="row" id="div_container_linegraphtest" style="display:none">
-        <div class="col">
-          <div class="card z-depth-5">
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4" id="div_linegraph_data_titletest">Card Title<</span>
-              <div>
-                <div id="div_linegraph_datatest" style="width:auto; height:350px;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Graphics -->
-      <div style="display:none" id="div_container_predbutton">
-        <div class="c">
-          <svg class="loader" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
-             <circle cx="170" cy="170" r="160" stroke="#E2007C"/>
-             <circle cx="170" cy="170" r="135" stroke="#404041"/>
-             <circle cx="170" cy="170" r="110" stroke="#E2007C"/>
-             <circle cx="170" cy="170" r="85" stroke="#404041"/>
-          </svg>
-
-        <button class="waves-effect waves-light btn" id="btn_predict" onclick="predictFailure()">Predict</button>
-        </div>
-      </div>
-      <!-- Probabity Display Card -->
-      <div class="row" id="div_container_prob" style="display:none">
-        <div class="col-lg-5">
-          <div align="center" class="card z-depth-5">
-            <div class="card-content">
-              <span align="justify" class="card-title activator grey-text text-darken-4">Probability of Failure</span>
-                <div id="gaugeDemo" class="gauge gauge-big gauge-green">
-                  <div class="gauge-arrow" data-percentage="0" style="transform: rotate(0deg);"></div>
-                </div>
-                <div>
-                <h2 id="prob"></h2>
-              </div>
-              <div class="card-body">
-                <p class="card-text">% Probability that machine will fail in next 30 cycles/days.</p>
-            </div>
-            </div>
-          </div>
-        </div>
-        <!-- Probabity Trend Display Card -->
-        <div class="col-lg-7">
-          <div class="card z-depth-5">
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Probability Trend</span>
-              <div>
-                <div id="div_linegraph_prob" style="width:auto; height:350px;"></div>
-              </div>
-              <div class="card-body">
-                <p align="justify" class="card-text">Trend in probability of failure (within 30 cycles/days) until period in selected sample</p>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
   </div>
 </div>
 
@@ -281,32 +96,7 @@
   <div class="container">
     <h1 class="header">The Road Ahead</h1>
     <p class="lead"></p>
-    <p align="justify">
-      <!-- [Purpose] -->
-      The above demo showcases how asset health can be monitored based on telemetry data and how machine
-      learning models can be deployed for failure predictions. The next step is to move from individual
-      asset failures to entire portfolio of machines.
-    </p>
-    <p align="justify">
-      For example, an machine learning model defined above can be deployed for boiler feed pump (BFP) of
-      a thermal power plant, Condendate Extraction Pump (CEP) and other equipments in the path of a the
-      condensate feed water system. Such models can be aggregated for a health score of entire condensate
-      feed water system. Such aggregation can transalate to health scores for entire asset portfolio,
-      to subsystems and ultimately health/risk scores for entire systems like CHP, AHP, WTP systems etc.
-    </p>
-    <p align="justify">
-      Often the emphasis is on civil works and commissioning of the plant so that commerical operation is declared on time and 
-      other parts of the project are deemphasized or ignored that have longer-term benefits like installing sensors, telemetry, 
-      connecting to SCADA systems, and utilizing the full capabilities of the SCADA system. These systems enable condition monitoring of
-      equipment and data analytics to optimize performance and reduce life cycle cost. (ADB, IoT in Power Sector)
-    </p>
-    <p align="justify">
-      Achieving such systems for predictive maintenance (PdM) requires an open system architecture for
-      collection and storage of data through IIoT technologies, requires deploying machine learning, AI and other
-      predictive models, a visualization dashboard for end users The generation sector can benefit from
-      this digital transformation from the convergence of operational technolgies (OT), informational technolgies (IT)
-      and Artificial Intelligence.
-    </p>
+  
   </div>
 </div>
 
@@ -314,13 +104,15 @@
     <div class="container">
       <div class="row" style="margin-bottom:0px">
           <div class="grey-text text-lighten-5">
-            <h6> &copy; arunthomas</h6>
+            <h6> &copy; footer text </h6>
           </div>
           <div class="col">
+            <!--
             <a style="margin-bottom:10px" href="https://arun-thomas.xyz"onclick="" class="btn btn-social-icon btn-lg"><i>b</i></a>
             <a style="margin-bottom:10px" href="https://www.linkedin.com/in/arunthomas89/" onclick="" class="btn btn-social-icon btn-lg btn-linkedin"><i class="fa fa-linkedin"></i></a>
             <a style="margin-bottom:10px" href="https://www.facebook.com/arunptp" onclick="" class="btn btn-social-icon btn-lg btn-facebook"><i class="fa fa-facebook"></i></a>
             <a style="margin-bottom:10px" href="https://github.com/arunptp"onclick="" class="btn btn-social-icon btn-lg btn-github"><i class="fa fa-github"></i></a>
+            -->
           </div>
         </div>
       </div>

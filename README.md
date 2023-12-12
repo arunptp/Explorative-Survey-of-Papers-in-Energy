@@ -27,4 +27,4 @@ TextMining.ipynb- Illustrates text mining of extracted csv files for understandi
 Clustering.ipynb - Illustrates clustering of themes of research. 
 
 
-A visualization of the results (clusters) is hosted at https://arun-thomas.xyz/Explorative-Survey-of-Papers-in-Energy/
+A visualization of the results (clusters) is hosted at https://arun-thomas.in/Explorative-Survey-of-Papers-in-Energy/
